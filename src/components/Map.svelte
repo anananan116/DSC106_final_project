@@ -65,18 +65,24 @@
     .interpolate(d3.interpolateRgb); // Use RGB interpolation for smooth color transitions
     await fetchData();
     update(currentYear);
-    window.addEventListener('resize', resize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', resize);
+      resize();
+    }
     resize();
   });
 
   onDestroy(() => {
-    window.removeEventListener('resize', resize);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', resize);
+    }
     if (timer) {
       clearInterval(timer);
     }
   });
 
   $: if (index === 1) {
+    resize();
     isVisible = true;
     clearInterval(timer);
     timer = setInterval(() => {
