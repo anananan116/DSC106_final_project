@@ -44,8 +44,21 @@
 </section>
   <section>And now we introduce human intervention. At the beginning climate change occurred slowly. Industrialization did not occur overnight, and it took years to get industrialization at the scale we have now. Even still, the jump in climate change is immediately apparent. Feel free to hover over your home country and see information on how your community has been affected.</section>
   <section>Over just the past 65 years we have caused a degree increase in average global climate, with the bulk of that increase occurring over the most recent 30 years. Last year was not only the hottest year on record, but also the largest one year increase in global temperature. This is indicative of the larger trend of climate change occurring at an increasingly fast rate, leaving scientists worried we may never stop this snowball once it's rolling.</section>
-  <section>Present the full map</section>
-  <section>Action must be taken to prevent climate change before it is too late. Attached is a variety of sources from groups much more informed than we are, sorted into categories depending on what you are looking for.<br>
+  <section>Present the map full screen</section>
+  
+</div>
+
+<div
+    class="background"
+    slot="background"
+    bind:clientWidth={width}
+    bind:clientHeight={height}
+  >
+    <Map {index} {currentYear} />
+</div>
+</Scroller>
+
+<section>Action must be taken to prevent climate change before it is too late. Attached is a variety of sources from groups much more informed than we are, sorted into categories depending on what you are looking for.<br>
 <br>
 Individual impact:<br>
 <a href="https://www.un.org/en/actnow/ten-actions">www.un.org/</a><br>
@@ -60,19 +73,6 @@ The Effects of Climate Change:<br>
 <a href="https://www.worldwildlife.org/threats/effects-of-climate-change">www.worldwildlife.org/</a><br>
 <br>
 </section>
-  <section>This is the sixth section.</section>
-</div>
-
-<div
-    class="background"
-    slot="background"
-    bind:clientWidth={width}
-    bind:clientHeight={height}
-  >
-    <Map {index} {currentYear} />
-</div>
-</Scroller>
-
 
 
 <style>
@@ -82,16 +82,18 @@ The Effects of Climate Change:<br>
     margin-right: 0;
     height: 100vh;
     position: relative;
-    outline: green solid 3px;
     z-index: 2; /* Higher z-index to ensure it is above the foreground */
   }
 
   .foreground {
+    padding: 500px 0;
     margin-left: 0;
     margin-right: auto;
     height: auto;
     position: relative;
-    outline: red solid 3px;
+    font-family: 'Verdana';
+    line-height: 1.8;
+    font-size: 20px;
     pointer-events: none; /* Foreground does not block mouse events */
     z-index: 1; /* Lower z-index to ensure it is below the background */
   }
@@ -104,9 +106,19 @@ The Effects of Climate Change:<br>
 
   section {
     height: 80vh;
-    background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
+    background-color: rgba(0, 0, 0, 0); /* 20% opaque */
     /* color: white; */
-    outline: magenta solid 3px;
+    text-align: center;
+    /* max-width: 750px; */
+    color: black;
+    padding: 1em;
+    margin: 0 0 2em 0;
+  }
+
+  big-section {
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0); /* 20% opaque */
+    /* color: white; */
     text-align: center;
     /* max-width: 750px; */
     color: black;
